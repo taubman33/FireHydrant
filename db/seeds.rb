@@ -14,6 +14,6 @@ User.create!(name: ‘Harry Hamster’, username: ‘HaHam55’, encrypted_passw
 puts "#{User.count} users created!"
 
 @user = User.create! (name: ‘David Dogg’, username: ‘DaDog33’, encrypted_password: ‘password1’, location: ‘New York City’, department ‘sales’, position: ‘manager’, active: ‘true’, aboutMe: ‘dog lover, guitarist, writer’)
-@post1 = @user.posts.build (projectTitle:'Fire Hydrant',  projectDesc 'Building FH app' imageUrl
+@post1 = @user.posts.build (projectTitle:'Fire Hydrant',  projectDesc 'Building FH app' imageUrl 'www.google.com'
 @post1.save   
-puts puts "#{Post.count} posts created!"
+puts "#{Post.count} posts created!"
