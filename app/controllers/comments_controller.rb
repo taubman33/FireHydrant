@@ -3,13 +3,13 @@ class CommentsController < ApplicationController
         before_action :set_post, only: [:show, :update, :destroy]
       
         def search
-          @Comments = Post.all.where(name: params[ :post_name])
-          render json: { message: "ok", posts: @posts }
+          @Comments = Comment.all.where(name: params[ :post_name])
+          render json: { message: "ok", comments: @comments }
         end
       
           def index
-              @Comments = Post.all
-              render json: { message: "ok", posts: @posts }
+              @Comments = Comment.all
+              render json: { message: "ok", comments: @comments }
             end
           
             def show
@@ -24,10 +24,10 @@ class CommentsController < ApplicationController
             end
           
         
-            # POST /posts
+            # POST /comments
             def create
-              @comment = @current_user.posts.build(post_params)
-                # @comment = Post.new(post_params)
+              @comment = @current_user.comments.build(comment_params)
+                # @comment = Comment.new(comment_params)
               if @comment.save
                 render json: @comment, status: :created, location: @comment
               else
@@ -35,28 +35,27 @@ class CommentsController < ApplicationController
               end
             end
           
-            # PATCH/PUT /posts/1
+            # PATCH/PUT /comments
             def update
-              if @comment.update(post_params)
+              if @comment.update(comment_params)
                 render json: @comment
               else
                 render json: @comment.errors, status: :unprocessable_entity
               end
             end
           
-            # DELETE /posts/1
+            # DELETE /comments/1
             def destroy
               @comment.destroy
             end
           
             private
-              # Use callbacks to share common setup or constraints between actions.
+      
               def set_post
                 @comment = Comment.find(params[:id])
               end
-          
-              # Only allow a trusted parameter "white list" through.
-              def post_params
+      
+              def comment_params
                 params.require(:comment).permit(:name, :maker, :effect_subtype, :notable_users, :songs_used_on, :photo)
               end
 
