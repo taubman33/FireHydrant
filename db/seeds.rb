@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create!(name: ‘David Dogg’, username: ‘DaDog33’, encrypted_password: ‘password1’, location: ‘New York City’, department ‘sales’, position: ‘manager’, active: ‘true’, aboutMe: ‘dog lover, guitarist, writer’)
+User.create!(name: ‘Carly Catt’, username: ‘CaCatt44’, encrypted_password: ‘password2’, location: ‘New York City’, department ‘sales’, position: ‘representative’, active: ‘true’, aboutMe: ‘cat lover, painter, amateur cook’)
+User.create!(name: ‘Freddy Fish’, username: ‘FrFish44’, encrypted_password: ‘password3’, location: ‘San Fransisco’, department ‘sales’, position: ‘manager’, active: ‘true’, aboutMe: ‘runner, Harry Potter fan’)
+User.create!(name: ‘Harry Hamster’, username: ‘HaHam55’, encrypted_password: ‘password4’, location: ‘Los Angeles’, department ‘sales’, position: ‘representative’, active: ‘true’, aboutMe: ‘vegan, yoga fanatic, ballroom dancer’)
+puts "#{User.count} users created!"
+
+@user = User.create! (name: ‘David Dogg’, username: ‘DaDog33’, encrypted_password: ‘password1’, location: ‘New York City’, department ‘sales’, position: ‘manager’, active: ‘true’, aboutMe: ‘dog lover, guitarist, writer’)
+@post1 = @user.posts.build (projectTitle:'Fire Hydrant',  projectDesc 'Building FH app' imageUrl
+@post1.save   
+puts puts "#{Post.count} posts created!"
